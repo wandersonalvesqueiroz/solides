@@ -54,4 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['dashboard'] = 'home';
-$route['cadastrar_usuario'] = 'users/create_view';
+$route['cadastrar_usuario'] = 'users_out/create_view';

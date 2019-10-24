@@ -1,6 +1,7 @@
 <?php
-        
-class Users extends CI_Controller
+require(APPPATH.'core/CI_BaseValidation.php');
+
+class Users extends CI_BaseValidation
 {
 
     public function __construct() {
