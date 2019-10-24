@@ -1,12 +1,13 @@
 <?php
-        
+
 class Users_out extends CI_Controller
 {
 
-    public function __construct() {
-       parent::__construct();
+    public function __construct()
+    {
+        parent::__construct();
     }
-    
+
     public function index()
     {
         $this->load->view('home');
@@ -26,13 +27,13 @@ class Users_out extends CI_Controller
 
         if ($result) {
 
-            if($result == 'username'){
+            if ($result == 'username') {
                 $msg = 'Usuário já existente!';
             }
-            if($result == 'email'){
+            if ($result == 'email') {
                 $msg = 'E-mail já existente!';
             }
-            if($result == 'password'){
+            if ($result == 'password') {
                 $msg = 'Confirmação de senha não confere!';
             }
 

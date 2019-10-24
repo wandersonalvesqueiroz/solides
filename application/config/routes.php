@@ -55,3 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['dashboard'] = 'home';
 $route['cadastrar_usuario'] = 'users_out/create_view';
+$route['registrar_horario'] = 'time_stamp';

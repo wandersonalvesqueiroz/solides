@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('Error');
     <title>Teste Solides</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <link rel="icon" type="image/png" href="<?php echo base_url('includes/assets/img/favicon.ico') ?>"/>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css"
           href="<?php echo base_url('includes/bootstrap/css/bootstrap.min.css') ?>">
@@ -65,7 +65,10 @@ defined('BASEPATH') OR exit('Error');
 
             </form>
             <div class="mt-2 text-right">
-                <a href="<?php echo base_url(); ?>index.php/cadastrar_usuario" class="btn btn-dark">
+                <a href="<?php echo base_url(); ?>index.php/registrar_horario" class="btn btn-info btn-sm">
+                    Registrar Horário
+                </a>
+                <a href="<?php echo base_url(); ?>index.php/cadastrar_usuario" class="btn btn-success btn-sm">
                     Cadastrar
                 </a>
             </div>

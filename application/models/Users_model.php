@@ -1,12 +1,15 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Users_model extends CI_Model {
-    
-    function __construct(){
+class Users_model extends CI_Model
+{
+
+    function __construct()
+    {
         parent::__construct();
     }
-    
-    public function validate(){
+
+    public function validate()
+    {
 
         $username = $this->security->xss_clean($this->input->post('username'));
         $email = $this->security->xss_clean($this->input->post('email'));
@@ -15,25 +18,24 @@ class Users_model extends CI_Model {
 
         $this->db->where('username', $username);
         $this->db->or_where('email', $email);
-        
+
         $query = $this->db->get('users');
 
-        if($query->result_id->num_rows == 1)
-        {
+        if ($query->result_id->num_rows == 1) {
             $row = $query->row();
 
-            if($row->username == $username) {
+            if ($row->username == $username) {
                 return 'username';
             }
 
-            if($row->email == $email) {
+            if ($row->email == $email) {
                 return 'email';
             }
 
             return false;
         }
 
-        if($password != $password_confirm){
+        if ($password != $password_confirm) {
             return 'password';
         }
 
@@ -42,7 +44,8 @@ class Users_model extends CI_Model {
         return true;
     }
 
-    public function save($data){
+    public function save($data)
+    {
 
         unset($data['password_confirm']);
         $this->db->set($data);
@@ -55,7 +58,9 @@ class Users_model extends CI_Model {
 
         $data = array(
             'id' => $row->id,
+            'name' => $row->name,
             'username' => $row->username,
+            'email' => $row->email,
             'validated' => true
         );
 
@@ -64,4 +69,5 @@ class Users_model extends CI_Model {
         redirect('dashboard');
     }
 }
+
 ?>
