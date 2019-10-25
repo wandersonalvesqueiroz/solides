@@ -24,7 +24,7 @@ class Login extends CI_Controller
 
         $this->load->model('login_model');
 
-        $result = $this->login_model->validate();
+        $result = $this->login_model->validateLogin();
         if (!$result) {
             $msg = 'Usuário e/ou senha inválido(s)!';
 

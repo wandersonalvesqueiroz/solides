@@ -691,8 +691,8 @@ pre code {
   max-width: 8.333333%;
 }
 
-.col-2 {
-  -ms-flex: 0 0 16.666667%;
+. {
+  -ms-flexcol-2: 0 0 16.666667%;
       flex: 0 0 16.666667%;
   max-width: 16.666667%;
 }

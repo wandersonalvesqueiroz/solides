@@ -25,16 +25,13 @@ $session = $this->session->userdata();
 
 <div class="d-flex" id="wrapper">
 
-    <!-- Sidebar -->
     <div class="bg-purple border-right text-light" id="sidebar-wrapper">
         <div class="sidebar-heading font-weight-bold">SysSolides</div>
         <div class="list-group list-group-flush">
             <span class="list-group-item list-group-item-action bg-purple-second text-light active">Registro de Horários</span>
         </div>
     </div>
-    <!-- /#sidebar-wrapper -->
 
-    <!-- Page Content -->
     <div id="page-content-wrapper">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-purple-second text-light border-bottom">
@@ -50,13 +47,14 @@ $session = $this->session->userdata();
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <?php echo $session['name'] ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Editar</a>
-                            <a class="dropdown-item" href="#">Excluir</a>
-                            <div class="dropdown-divider"></div>
+                            <!--                            <a class="dropdown-item" href="#">Editar</a>-->
+                            <!--                            <a class="dropdown-item" href="#">Excluir</a>-->
+                            <!--                            <div class="dropdown-divider"></div>-->
                             <a class="dropdown-item" href="<?php echo base_url() ?>index.php/logout">Sair</a>
                         </div>
                     </li>
@@ -64,21 +62,46 @@ $session = $this->session->userdata();
             </div>
         </nav>
 
+
         <div class="container-fluid">
             <h2 class="mt-4 mb-3">Registro de Horários</h2>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">Data</th>
-                        <th scope="col">Entrada</th>
-                        <th scope="col">Ida Almoço</th>
-                        <th scope="col">Volta Almoço</th>
-                        <th scope="col">Saída</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($registers as $register):
+
+            <?php if (isset($months) && !empty($months)): ?>
+                <form action="<?php echo base_url(); ?>index.php/time_stamp/register_list" method="post"
+                      name="register_list" class="form form-inline">
+                    <div class="form-group col-6">
+                        <label for="month" class="col-2 col-form-label">Mês</label>
+                        <select class="form-control" id="month" class="col-6">
+                            <?php foreach ($months as $month):
+                                $month_date_register = new DateTime($month->date_register);
+                                $month_date_register = $month_date_register->format('m/Y');
+                                ?>
+                                <option value="<?php echo $month->date_register; ?>">
+                                    <?php echo $month_date_register; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <button type="submit" class="btn btn-primary col-3 ml-3">Exibir registros</button>
+                    </div>
+                </form>
+            <?php endif; ?>
+
+            <?php if (isset($registers) && !empty($registers)): ?>
+                <h4><?php echo 'MES'; ?></h4>
+                <div class="table-responsive">
+
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Data</th>
+                            <th scope="col">Entrada</th>
+                            <th scope="col">Ida Almoço</th>
+                            <th scope="col">Volta Almoço</th>
+                            <th scope="col">Saída</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($registers as $register):
                             $date_register = new DateTime($register->date_register);
                             $date_register = $date_register->format('d/m/Y');
                             ?>
@@ -90,10 +113,12 @@ $session = $this->session->userdata();
                                 <td><?php echo $register->out_time; ?></td>
                             </tr>
                         <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
+                        </tbody>
+                    </table>
+                </div>
+            <?php endif; ?>
         </div>
+
     </div>
 
 </div>

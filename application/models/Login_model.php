@@ -8,9 +8,29 @@ class Login_model extends CI_Model
         parent::__construct();
     }
 
-    public function validate()
+    public function validateLogin()
     {
 
+        $user = $this->validateUser();
+
+        if($user){
+            $data = array(
+                'id' => $user->id,
+                'name' => $user->name,
+                'username' => $user->username,
+                'email' => $user->email,
+                'validated' => true
+            );
+
+            $this->session->set_userdata($data);
+            return true;
+        }
+
+        return false;
+    }
+
+    public function validateUser()
+    {
         // grab user input
         $username = $this->security->xss_clean($this->input->post('username'));
         $password = $this->security->xss_clean($this->input->post('password'));
@@ -22,26 +42,14 @@ class Login_model extends CI_Model
         // Run the query
         $query = $this->db->get('users');
 
-        // Let's check if there are any results
         if ($query->result_id->num_rows == 1) {
-            // If there is a user, then create session data
-            $row = $query->row();
-
-            $data = array(
-                'id' => $row->id,
-                'name' => $row->name,
-                'username' => $row->username,
-                'email' => $row->email,
-                'validated' => true
-            );
-
-            $this->session->set_userdata($data);
-            return true;
+            return $query->row();
+        } else {
+            return false;
         }
-        // If the previous process did not validate
-        // then return false.
-        return false;
+
     }
+
 }
 
 ?>

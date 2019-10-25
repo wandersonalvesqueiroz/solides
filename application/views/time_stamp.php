@@ -41,18 +41,18 @@ defined('BASEPATH') OR exit('Error');
 				</span>
 
             <?php if (isset($msg) && !is_null($msg)): ?>
-                <div class="alert alert-danger" role="alert"><?= $msg ?></div>
+                <div class="alert alert-<?php echo $type_msg; ?>" role="alert"><?= $msg ?></div>
             <?php endif; ?>
 
-            <form action="<?php echo base_url(); ?>index.php/time_stamp/register" method="post" name="register"
+            <form action="<?php echo base_url(); ?>index.php/time_stamp_out/register" method="post" name="register"
                   class="login100-form validate-form p-b-33 p-t-5">
 
-                <div class="wrap-input100 validate-input" data-validate="Enter username">
+                <div class="wrap-input100 validate-input" data-validate="Informe o usuário">
                     <input class="input100" type="text" name="username" placeholder="usuário" value="">
                     <span class="focus-input100" data-placeholder="&#xe82a;"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate="Enter password">
+                <div class="wrap-input100 validate-input" data-validate="Informe a senha">
                     <input class="input100" type="password" name="password" placeholder="senha" value="">
                     <span class="focus-input100" data-placeholder="&#xe80f;"></span>
                 </div>

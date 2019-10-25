@@ -25,7 +25,6 @@ $session = $this->session->userdata();
 
 <div class="d-flex" id="wrapper">
 
-    <!-- Sidebar -->
     <div class="bg-purple border-right text-light" id="sidebar-wrapper">
         <div class="sidebar-heading font-weight-bold">SysSolides</div>
         <div class="list-group list-group-flush">
@@ -33,9 +32,7 @@ $session = $this->session->userdata();
                class="list-group-item list-group-item-action bg-purple-second text-light">Registro de Horários</a>
         </div>
     </div>
-    <!-- /#sidebar-wrapper -->
 
-    <!-- Page Content -->
     <div id="page-content-wrapper">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-purple-second text-light border-bottom">
@@ -55,9 +52,9 @@ $session = $this->session->userdata();
                             <?php echo $session['name'] ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Editar</a>
-                            <a class="dropdown-item" href="#">Excluir</a>
-                            <div class="dropdown-divider"></div>
+<!--                            <a class="dropdown-item" href="#">Editar</a>-->
+<!--                            <a class="dropdown-item" href="#">Excluir</a>-->
+<!--                            <div class="dropdown-divider"></div>-->
                             <a class="dropdown-item" href="<?php echo base_url() ?>index.php/logout">Sair</a>
                         </div>
                     </li>

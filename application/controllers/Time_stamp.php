@@ -13,6 +13,7 @@ class Time_stamp extends CI_BaseValidation
     {
         $this->load->model('time_stamp_model');
 
+        $result['months'] = $this->time_stamp_model->months();
         $result['registers'] = $this->time_stamp_model->search();
 
         $this->load->view('time_stamp_list', $result);
