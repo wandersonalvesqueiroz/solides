@@ -29,7 +29,7 @@ $session = $this->session->userdata();
     <div class="bg-purple border-right text-light" id="sidebar-wrapper">
         <div class="sidebar-heading font-weight-bold">SysSolides</div>
         <div class="list-group list-group-flush">
-            <a href="#" class="list-group-item list-group-item-action bg-purple-second text-light">Registro de Horários</a>
+            <span class="list-group-item list-group-item-action bg-purple-second text-light active">Registro de Horários</span>
         </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -44,7 +44,7 @@ $session = $this->session->userdata();
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url() ?>index.php/dashboard">
                             <i class="fa fa-home" aria-hidden="true"></i>
                         </a>
@@ -70,31 +70,23 @@ $session = $this->session->userdata();
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Entrada</th>
+                        <th scope="col">Ida Almoço</th>
+                        <th scope="col">Volta Almoço</th>
+                        <th scope="col">Saída</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                        <?php print_r($registers);foreach($registers as $register):?>
+                            <tr>
+                                <th scope="row"><?php echo $register->date_register; ?></th>
+                                <td><?php echo $register->in_time; ?></td>
+                                <td><?php echo $register->out_lunch; ?></td>
+                                <td><?php echo $register->in_lunch; ?></td>
+                                <td><?php echo $register->out_time; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
