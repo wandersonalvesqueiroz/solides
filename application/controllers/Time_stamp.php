@@ -17,9 +17,7 @@ class Time_stamp extends CI_Controller
     {
         $this->load->model('time_stamp_model');
 
-        $result = $this->time_stamp_model->search();
-
-        print_r($result);die;
+        $result['registers'] = $this->time_stamp_model->search();
 
         $this->load->view('time_stamp_list', $result);
     }

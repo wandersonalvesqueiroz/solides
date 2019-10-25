@@ -78,7 +78,7 @@ $session = $this->session->userdata();
                     </tr>
                     </thead>
                     <tbody>
-                        <?php print_r($registers);foreach($registers as $register):?>
+                        <?php foreach($registers as $register):?>
                             <tr>
                                 <th scope="row"><?php echo $register->date_register; ?></th>
                                 <td><?php echo $register->in_time; ?></td>

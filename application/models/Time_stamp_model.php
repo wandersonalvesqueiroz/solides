@@ -23,7 +23,7 @@ class Time_stamp_model extends CI_Model
         }
 
         $query = $this->db->get('time_stamp');
-        $row['registers'] = $query->row();
+        $row = $query->result();
 
         return $row;
     }
