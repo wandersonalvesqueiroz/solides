@@ -56,5 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['dashboard'] = 'home';
 $route['logout'] = 'home/logout';
 $route['cadastrar_usuario'] = 'users_out/create_view';
-$route['registrar_horario'] = 'time_stamp';
+$route['registrar_horario'] = 'time_stamp_out';
 $route['registros_horarios'] = 'time_stamp/register_list';

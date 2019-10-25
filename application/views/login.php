@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('Error');
 				</span>
 
             <?php if (isset($msg) && !is_null($msg)): ?>
-                <div class="alert"><?= $msg ?></div>
+                <div class="alert alert-danger" role="alert"><?= $msg ?></div>
             <?php endif; ?>
 
             <form action="<?php echo base_url(); ?>index.php/login/process" method="post" name="process"

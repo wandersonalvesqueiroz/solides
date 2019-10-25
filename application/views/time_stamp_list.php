@@ -78,9 +78,12 @@ $session = $this->session->userdata();
                     </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($registers as $register):?>
+                        <?php foreach($registers as $register):
+                            $date_register = new DateTime($register->date_register);
+                            $date_register = $date_register->format('d/m/Y');
+                            ?>
                             <tr>
-                                <th scope="row"><?php echo $register->date_register; ?></th>
+                                <th scope="row"><?php echo $date_register; ?></th>
                                 <td><?php echo $register->in_time; ?></td>
                                 <td><?php echo $register->out_lunch; ?></td>
                                 <td><?php echo $register->in_lunch; ?></td>

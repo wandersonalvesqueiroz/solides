@@ -12,7 +12,6 @@ class Time_stamp_model extends CI_Model
     {
 
         $session = $this->session->userdata();
-        print_r($session);
 
         $id_user = $session['id'];
         $this->db->where('id_user', $id_user);
