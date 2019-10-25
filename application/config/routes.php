@@ -54,5 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['dashboard'] = 'home';
+$route['logout'] = 'home/logout';
 $route['cadastrar_usuario'] = 'users_out/create_view';
 $route['registrar_horario'] = 'time_stamp';
+$route['registros_horarios'] = 'time_stamp/register_list';

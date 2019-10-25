@@ -13,4 +13,9 @@ class Time_stamp extends CI_Controller
         $this->load->view('time_stamp');
     }
 
+    public function register_list()
+    {
+        $this->load->view('time_stamp_list');
+    }
+
 }

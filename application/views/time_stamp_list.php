@@ -29,7 +29,7 @@ $session = $this->session->userdata();
     <div class="bg-purple border-right text-light" id="sidebar-wrapper">
         <div class="sidebar-heading">SysSolides</div>
         <div class="list-group list-group-flush">
-            <a href="<?php echo base_url() ?>index.php/registros_horarios" class="list-group-item list-group-item-action bg-purple-second text-light">Registro de Horários</a>
+            <a href="#" class="list-group-item list-group-item-action bg-purple-second text-light">Registro de Horários</a>
         </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -65,7 +65,39 @@ $session = $this->session->userdata();
         </nav>
 
         <div class="container-fluid">
-            <h2 class="mt-4">Bem vindo ao SysSolides</h2>
+            <h2 class="mt-4 mb-3">Registro de Horários</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

@@ -33,12 +33,12 @@ body {
     margin-left: 0;
 }
 
-.bg-purple-light {
-    background-color: #4b0d77;
+.bg-purple {
+    background-color: #1b0141;
 }
 
 .bg-purple-second {
-    background-color: #52039b;
+    background-color: #290264;
 }
 
 .list-group-item-action:focus,
