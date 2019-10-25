@@ -15,31 +15,13 @@ class Time_stamp extends CI_Controller
 
     public function register_list()
     {
-        $session = $this->session->userdata();
-        print_r($session);
+        $this->load->model('time_stamp_model');
 
-        $id_user = $session['id'];
-        $this->db->where('id_user', $id_user);
+        $result = $this->time_stamp_model->search();
 
-        if($this->input->post()){
-            $date_register = $this->security->xss_clean($this->input->post('date_register'));
-            $this->db->where('date_register', $date_register);
-        }
+        print_r($result);die;
 
-
-
-
-
-        $query = $this->db->find('time_stamp');
-
-        echo '<pre>';
-        print_r($query);die;
-
-        $row['registers'] = $query->row();
-
-
-
-        $this->load->view('time_stamp_list', $row);
+        $this->load->view('time_stamp_list', $result);
     }
 
 }
