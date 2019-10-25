@@ -27,9 +27,10 @@ $session = $this->session->userdata();
 
     <!-- Sidebar -->
     <div class="bg-purple border-right text-light" id="sidebar-wrapper">
-        <div class="sidebar-heading">SysSolides</div>
+        <div class="sidebar-heading font-weight-bold">SysSolides</div>
         <div class="list-group list-group-flush">
-            <a href="<?php echo base_url() ?>index.php/registros_horarios" class="list-group-item list-group-item-action bg-purple-second text-light">Registro de Horários</a>
+            <a href="<?php echo base_url() ?>index.php/registros_horarios"
+               class="list-group-item list-group-item-action bg-purple-second text-light active">Registro de Horários</a>
         </div>
     </div>
     <!-- /#sidebar-wrapper -->

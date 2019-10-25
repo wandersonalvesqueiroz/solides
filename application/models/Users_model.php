@@ -48,6 +48,7 @@ class Users_model extends CI_Model
     {
 
         unset($data['password_confirm']);
+        $data['password'] = md5($data['password']);
         $this->db->set($data);
         $this->db->insert('users');
 
