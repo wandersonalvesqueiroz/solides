@@ -59,8 +59,27 @@ body {
     color: rgba(255, 255, 255, 0.8);
 }
 
-.active{
+.active {
     background-color: #007bff !important;
+}
+
+.width100 {
+    width: 100% !important;
+}
+
+nav > .collapse {
+    display: contents !important;
+}
+
+nav ul.navbar-nav {
+    flex-direction: inherit;
+}
+nav ul.navbar-nav li{
+    margin: 0 5px;
+    padding: 0 5px;
+}
+.dropdown-menu{
+    position: absolute !important;
 }
 
 @media (min-width: 768px) {
@@ -75,5 +94,11 @@ body {
 
     #wrapper.toggled #sidebar-wrapper {
         margin-left: -15rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn {
+        width: auto !important;
     }
 }

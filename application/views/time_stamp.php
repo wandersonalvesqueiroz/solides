@@ -65,7 +65,7 @@ defined('BASEPATH') OR exit('Error');
 
             </form>
             <div class="mt-2 text-right">
-                <a href="<?php echo base_url(); ?>index.php/login" class="btn btn-info btn-sm">
+                <a href="<?php echo base_url() ?>index.php/registros_horarios" class="btn btn-info btn-sm">
                     Verificar Registros
                 </a>
             </div>

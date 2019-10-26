@@ -31,22 +31,19 @@ class Time_stamp_model extends CI_Model
         $id_user = $session['id'];
         $this->db->where('id_user', $id_user);
 
+        $date_register = date('Y-m-d');
         if (!empty($this->input->post())) {
-            print_r($this->input->post());
-            die;
+            $date_register = $this->security->xss_clean($this->input->post('month'));
         }
 
-        if (!empty($this->input->post())) {
-            echo 'teste'; die;
-            $date_register = $this->security->xss_clean($this->input->post('date_register'));
-            $this->db->where('date_register', $date_register);
-            $query = $this->db->get('time_stamp');
-            $row = $query->result();
+        $month_date_register = new DateTime($date_register);
+        $month_date_register = $month_date_register->format('Y-m');
 
-            return $row;
-        }
+        $this->db->where("DATE_FORMAT(date_register,'%Y-%m')", $month_date_register);
+        $query = $this->db->get('time_stamp');
+        $row = $query->result();
 
-        return false;
+        return $row;
 
     }
 

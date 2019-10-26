@@ -46,6 +46,11 @@ $session = $this->session->userdata();
                             <i class="fa fa-home" aria-hidden="true"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url() ?>index.php/registrar_horario">
+                            <i class="fa fa-id-badge" aria-hidden="true"></i>
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,27 +72,42 @@ $session = $this->session->userdata();
             <h2 class="mt-4 mb-3">Registro de Horários</h2>
 
             <?php if (isset($months) && !empty($months)): ?>
-                <form action="<?php echo base_url(); ?>index.php/time_stamp/register_list" method="post"
+                <?php
+                $thisDate = date('m/Y');
+                if (isset($registers) && !empty($registers)) {
+                    $thisDate = date('m/Y', strtotime($registers[0]->date_register));
+                }
+                ?>
+
+                <form action="<?php echo base_url(); ?>index.php/registros_horarios" method="post"
                       name="register_list" class="form form-inline">
-                    <div class="form-group col-6">
-                        <label for="month" class="col-2 col-form-label">Mês</label>
-                        <select class="form-control" id="month" class="col-6">
-                            <?php foreach ($months as $month):
-                                $month_date_register = new DateTime($month->date_register);
-                                $month_date_register = $month_date_register->format('m/Y');
-                                ?>
-                                <option value="<?php echo $month->date_register; ?>">
-                                    <?php echo $month_date_register; ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                        <button type="submit" class="btn btn-primary col-3 ml-3">Exibir registros</button>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                        <label for="month" class="col-lg-2 col-md-3 col-sm-3 mb-2 col-form-label">Mês</label>
+                        <div class="col-lg-4 col-md-8 col-sm-8 mb-2">
+                            <select class="form-control width100" name="month" id="month">
+                                <?php foreach ($months as $month):
+                                    $month_date_register = date('m/Y', strtotime($month->date_register));
+                                    ?>
+                                    <option value="<?php echo date('Y-m', strtotime($month->date_register)); ?>"
+                                        <?php if ($thisDate == $month_date_register) echo 'selected'; ?>
+                                    >
+                                        <?php echo $month_date_register; ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary col-lg-3 ml-3 mb-2">
+                            Exibir registros
+                        </button>
                     </div>
                 </form>
             <?php endif; ?>
 
             <?php if (isset($registers) && !empty($registers)): ?>
-                <h4><?php echo 'MES'; ?></h4>
+                <h4 class="mt-5 mb-3">
+                    <?php echo 'Registros do mês ' . date('m/Y', strtotime($registers[0]->date_register)); ?>
+                </h4>
+
                 <div class="table-responsive">
 
                     <table class="table table-striped">
@@ -102,8 +122,7 @@ $session = $this->session->userdata();
                         </thead>
                         <tbody>
                         <?php foreach ($registers as $register):
-                            $date_register = new DateTime($register->date_register);
-                            $date_register = $date_register->format('d/m/Y');
+                            $date_register = date('d/m/Y', strtotime($register->date_register));
                             ?>
                             <tr>
                                 <th scope="row"><?php echo $date_register; ?></th>

@@ -47,6 +47,11 @@ $session = $this->session->userdata();
                             <i class="fa fa-home" aria-hidden="true"></i>
                         </span>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url() ?>index.php/registrar_horario">
+                            <i class="fa fa-id-badge" aria-hidden="true"></i>
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <?php echo $session['name'] ?>
